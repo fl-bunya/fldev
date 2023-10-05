@@ -41,10 +41,10 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.z = 0.015;
-				camera.position.x = 4.5;
-				camera.position.y = 2;
-
+				camera.position.x = 3;
+				camera.position.y = 3.7;
+				camera.position.z = 7;
+				
 				// scene
 
 				scene = new THREE.Scene();
@@ -74,14 +74,14 @@
 
 				new MTLLoader()
 					.setPath( '3d/' )
-					.load( 'Scaniverse_2023_09_05_152131.mtl', function ( materials ) {
+					.load( 'Scaniverse_2023_10_05_105002.mtl', function ( materials ) {
 
 						materials.preload();
 
 						new OBJLoader()
 							.setMaterials( materials )
 							.setPath( '3d/' )
-							.load( 'Scaniverse_2023_09_05_152131.obj', function ( object ) {
+							.load( 'Scaniverse_2023_10_05_105002.obj', function ( object ) {
 
 								object.position.y = - 0.2;
 								object.scale.setScalar( 0.8 );
@@ -101,8 +101,8 @@
 				//
 
 				const controls = new  OrbitControls( camera, renderer.domElement );
-				controls.minDistance = 2;
-				controls.maxDistance = 5;
+				controls.minDistance = 1;
+				controls.maxDistance = 30;
 
 				//
 
@@ -128,7 +128,6 @@
 				renderer.render( scene, camera );
 				// console.log('Camera Position:', camera.position);
 				// console.log('Camera Rotation:', camera.rotation);
-			
 			}
 
 
